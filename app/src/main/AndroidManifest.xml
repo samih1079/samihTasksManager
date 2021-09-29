@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SamihTasksManager">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddTaskActivity"
+            android:exported="true" />
+        <activity
             android:name=".SpalshScreenActivity"
             android:exported="true" />
         <activity
@@ -19,7 +28,7 @@
             android:name=".SignInActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainTasksActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
