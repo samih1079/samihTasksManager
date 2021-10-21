@@ -3,13 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_add_task.xml" value="0.27291666666666664" />
-        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_history.xml" value="0.25729166666666664" />
-        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
-        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_register.xml" value="0.27291666666666664" />
-        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_settings.xml" value="0.24322916666666666" />
-        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
-        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_spalsh_screen.xml" value="0.27291666666666664" />
+        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_add_task.xml" value="0.175" />
+        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_history.xml" value="0.2125" />
+        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_main.xml" value="0.2125" />
+        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_register.xml" value="0.175" />
+        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_settings.xml" value="0.2125" />
+        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_sign_in.xml" value="0.175" />
+        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/layout/activity_spalsh_screen.xml" value="0.175" />
+        <entry key="..\:/samih_neveen2021/samihTasksManager/app/src/main/res/menu/main_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -7,7 +7,7 @@
     tools:context=".SpalshScreenActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imSplashLogo"
         android:layout_width="0dp"
         android:layout_height="337dp"
         android:layout_marginStart="34dp"
