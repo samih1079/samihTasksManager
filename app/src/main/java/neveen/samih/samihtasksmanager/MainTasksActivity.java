@@ -4,14 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-public class MainTasksActivity extends AppCompatActivity {
+                                                      // listener 1.
+public class MainTasksActivity extends AppCompatActivity implements DialogInterface.OnClickListener {
 ///lkjhhkhjk
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +20,15 @@ public class MainTasksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //1. build menu xml
+    //2. to add menu (3 point right-top corner) to the current activity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+                                 //the xml menu file
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return true;
     }
-    //
+    //3. select item event handler
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.mnitmSettings)
@@ -40,10 +44,22 @@ public class MainTasksActivity extends AppCompatActivity {
         {
             AlertDialog.Builder builder=new AlertDialog.Builder(this);
             builder.setMessage("Are you sure?");
+            builder.setCancelable(true);
+            builder.setPositiveButton("Yes",this);
+            builder.setNegativeButton("No",this);
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
 
 
 
         }
         return true;
+    }
+
+    //listener 2. implemnet methods
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+
     }
 }
