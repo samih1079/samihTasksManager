@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
                                                       // listener 1.
@@ -44,22 +45,38 @@ public class MainTasksActivity extends AppCompatActivity implements DialogInterf
         {
             AlertDialog.Builder builder=new AlertDialog.Builder(this);
             builder.setMessage("Are you sure?");
-            builder.setCancelable(true);
+            builder.setCancelable(true);//
+                                             //listener 3.  add listener to the buttons
             builder.setPositiveButton("Yes",this);
             builder.setNegativeButton("No",this);
-
-            AlertDialog dialog = builder.create();
+            AlertDialog dialog = builder.create();//
             dialog.show();
-
-
 
         }
         return true;
     }
 
-    //listener 2. implemnet methods
-    @Override
-    public void onClick(DialogInterface dialogInterface, int i) {
+    //listener 2. implemnet method
 
+     /**
+      * event handler
+      * @param dialogInterface the active dialog
+      * @param which the button id which cause the event
+      */
+    @Override
+    public void onClick(DialogInterface dialogInterface, int which) {
+        ////listener 4. react for each action
+        if(which==dialogInterface.BUTTON_POSITIVE)
+        {
+
+            Toast.makeText(getApplicationContext(), "loging out", Toast.LENGTH_SHORT).show();
+            dialogInterface.cancel();
+            finish();//to close current activity
+        }
+        if(which==dialogInterface.BUTTON_NEGATIVE)
+        {
+            Toast.makeText(getApplicationContext(), "loging out canceled", Toast.LENGTH_SHORT).show();
+            dialogInterface.cancel();
+        }
     }
 }
