@@ -37,11 +37,11 @@ public class AddTaskActivity extends AppCompatActivity {
         imgvTaskPic=findViewById(R.id.imgvTaskPic);
         btnSave=findViewById(R.id.btnSave);
         spnrImprotance=findViewById(R.id.spnrImprotance);
-
+        skbNecessity=findViewById(R.id.skbNecessity);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateFeilds();
+                 validateFeilds();
             }
         });
 

@@ -45,10 +45,8 @@
         android:id="@+id/tvImportance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
         android:text="Importance"
-        app:layout_constraintBottom_toTopOf="@+id/spnrImprotance"
-        app:layout_constraintStart_toStartOf="@+id/spnrImprotance"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout9"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout9" />
 
     <TextView
@@ -56,31 +54,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginBottom="10dp"
         android:text="Necessity"
-        app:layout_constraintBottom_toTopOf="@+id/skbNecessity"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/spnrImprotance"
+        app:layout_constraintTop_toBottomOf="@+id/spnrImprotance" />
 
     <SeekBar
         android:id="@+id/skbNecessity"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
         android:max="10"
         android:progress="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnrImprotance" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Spinner
         android:id="@+id/spnrImprotance"
         android:layout_width="0dp"
         android:layout_height="53dp"
-        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9" />
+        app:layout_constraintTop_toBottomOf="@+id/tvImportance" />
 
     <ImageButton
         android:id="@+id/imgvTaskPic"
@@ -96,7 +91,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="9dp"
         android:text="Save"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgvTaskPic" />

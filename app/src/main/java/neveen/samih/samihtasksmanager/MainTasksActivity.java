@@ -1,5 +1,4 @@
 package neveen.samih.samihtasksmanager;
-//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
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,10 +17,18 @@ import com.google.firebase.auth.FirebaseAuth;
 // listener 1.
 public class MainTasksActivity extends AppCompatActivity implements DialogInterface.OnClickListener {
 ///lkjhhkhjk
+    private FloatingActionButton fabAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fabAdd=findViewById(R.id.fabAdd);
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AddTaskActivity.class));
+            }
+        });
     }
 
     //1. build menu xml
@@ -85,4 +93,6 @@ public class MainTasksActivity extends AppCompatActivity implements DialogInterf
             dialogInterface.cancel();
         }
     }
+
+
 }
