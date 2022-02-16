@@ -9,19 +9,37 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import MyData.MyTaskAdapter;
 
 // listener 1.
 public class MainTasksActivity extends AppCompatActivity implements DialogInterface.OnClickListener {
 ///lkjhhkhjk
     private FloatingActionButton fabAdd;
+    //read: 1
+    private ListView lstv;
+    private MyTaskAdapter taskAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //read 2
+        lstv=findViewById(R.id.lstvAllTasks);
+        taskAdapter=new MyTaskAdapter(this,R.layout.task_item_layout);
+        //read 3: set adapter to listview (connect the the data ro list view
+        lstv.setAdapter(taskAdapter);
+
+
         fabAdd=findViewById(R.id.fabAdd);
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +47,40 @@ public class MainTasksActivity extends AppCompatActivity implements DialogInterf
                 startActivity(new Intent(getApplicationContext(),AddTaskActivity.class));
             }
         });
+    }
+    //read 4:
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        readDataFromFireBase("");
+    }
+
+    //read 5:
+    /**
+     * read tasks rom firebase and fill the adapter data structure
+     * s- is text to search, if it is empty the method show all results
+     * @param s
+     */
+    private void readDataFromFireBase(String s)
+    {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        String uid = FirebaseAuth.getInstance().getUid();// cuurent user id.
+
+        ref.child("mytasks").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     //1. build menu xml
