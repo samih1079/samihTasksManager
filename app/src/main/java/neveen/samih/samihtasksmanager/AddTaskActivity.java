@@ -69,16 +69,18 @@ public class AddTaskActivity extends AppCompatActivity {
             myTask.setTitle(title);
             myTask.setSubject(subj);
             myTask.setNecessity(necc);
-
+///curent user uidf
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             myTask.setOwner(uid);
 
             FirebaseDatabase db=FirebaseDatabase.getInstance();
             DatabaseReference ref = db.getReference();
+
             String key = ref.child("mytasks").push().getKey();
             myTask.setKey(key);
-
-            ref.child("mytasks").child(key).setValue(myTask).addOnCompleteListener(new OnCompleteListener<Void>() {
+            // add tassks to current user.
+            //just this user can see/read this tasks
+            ref.child("mytasks").child(uid).child(key).setValue(myTask).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {//response
                     if(task.isSuccessful())

@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import MyData.MyTask;
 import MyData.MyTaskAdapter;
 
 // listener 1.
@@ -55,7 +56,7 @@ public class MainTasksActivity extends AppCompatActivity implements DialogInterf
     protected void onResume() {
         super.onResume();
 
-        readDataFromFireBase("");
+        readTasksFromFireBase("");
     }
 
     //read 5:
@@ -64,15 +65,21 @@ public class MainTasksActivity extends AppCompatActivity implements DialogInterf
      * s- is text to search, if it is empty the method show all results
      * @param s
      */
-    private void readDataFromFireBase(String s)
+    private void readTasksFromFireBase(String s)
     {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         String uid = FirebaseAuth.getInstance().getUid();// cuurent user id.
 
+                      //اضافة امكانية "التحتلن" بكل تغيير سيحصل على القيم في قاعدة البيانات
         ref.child("mytasks").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                taskAdapter.clear();
+                for (DataSnapshot d:dataSnapshot.getChildren())
+                {
+                    MyTask t=d.getValue(MyTask.class);
+                    taskAdapter.add(t);
+                }
             }
 
             @Override
